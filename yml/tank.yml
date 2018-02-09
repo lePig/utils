@@ -1,0 +1,35 @@
+# tank网盘docker-compose.yml部署文件
+version: "3"
+services:
+
+  db:
+    image: mysql:5.7
+    volumes:
+        - /data/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: lepig1860
+      MYSQL_DATABASE: tank
+      MYSQL_USER: tank
+      MYSQL_PASSWORD: tank123
+
+  tank:
+    image: eyeblue/tank:1.0.2
+    depends_on:
+      - db
+    ports:
+      - "80:6010"
+    restart: always
+    environment:
+        TANK_MYSQL_PORT: 3306
+        TANK_MYSQL_HOST: db
+        TANK_MYSQL_SCHEMA: tank
+        TANK_MYSQL_USERNAME: tank
+        TANK_MYSQL_PASSWORD: tank123
+        TANK_ADMIN_USERNAME: admin
+        TANK_ADMIN_EMAIL: lepig@qq.com
+        TANK_ADMIN_PASSWORD: 123456
+
+    volumes:
+      - /data/tank/log:/data/log
+      - /data/tank/matter:/data/matter
