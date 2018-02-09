@@ -21,6 +21,7 @@ services:
       - "80:6010"
     restart: always
     environment:
+        TZ: Asia/Shanghai
         TANK_MYSQL_PORT: 3306
         TANK_MYSQL_HOST: db
         TANK_MYSQL_SCHEMA: tank
