@@ -11,6 +11,17 @@ class Test
         // echo $datetime;
         echo Util::friendlyDateTime($datetime);
     }
+
+    public function randomString($length)
+    {
+        var_dump(Util::randomString($length));
+    }
+    public function randomInt($length)
+    {
+        var_dump(Util::randomInt($length));
+    }
 }
 
-echo (new Test)->run();
+// (new Test)->run();
+(new Test)->randomString(16);
+(new Test)->randomInt(4);
