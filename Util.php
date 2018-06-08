@@ -62,7 +62,7 @@ class Util
         return self::random($length, false);
     }
 
-    public static function random($length, $numeric = FALSE)
+    protected static function random($length, $numeric = FALSE)
     {
         // $seed = base_convert(md5(microtime() . $_SERVER['DOCUMENT_ROOT']), 16, $numeric ? 10 : 35);
         $seed = base_convert(md5(microtime() . __DIR__), 16, $numeric ? 10 : 35);

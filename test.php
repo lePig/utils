@@ -3,6 +3,9 @@ include 'util.php';
 date_default_timezone_set('PRC');
 class Test
 {
+    public function guid() {
+        var_dump(Util::guid());
+    }
     
     public function run()
     {
@@ -23,5 +26,6 @@ class Test
 }
 
 // (new Test)->run();
-(new Test)->randomString(16);
-(new Test)->randomInt(4);
+ (new Test)->randomString(16);
+ (new Test)->randomInt(4);
+ (new Test)->guid();
