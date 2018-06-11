@@ -23,9 +23,16 @@ class Test
     {
         var_dump(Util::randomInt($length));
     }
+
+    public function dump()
+    {
+        $array = ['a', 'b', 'c', [1,'2', 3], (new stdClass),];
+        Util::dump($array);
+    }
 }
 
 // (new Test)->run();
  (new Test)->randomString(16);
  (new Test)->randomInt(4);
  (new Test)->guid();
+ (new Test)->dump();
